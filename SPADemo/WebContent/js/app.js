@@ -1,0 +1,39 @@
+/**
+ * 
+ */
+var app=angular.module("app",['ngRoute'])
+app.config(function($routeProvider){
+	$routeProvider
+	.when('/home',{
+		templateUrl:'views/HomePage.html',
+		controller:'HomeController'
+	})
+	.when('/aboutus',{
+		templateUrl:'views/AboutUs.html',
+		controller:'AboutUsController'
+	})
+	.when('/blog',{
+		templateUrl:'views/Blog.html',
+		controller:'BlogController'
+	})
+	.when('/getallpersons',{
+		templateUrl:'views/Persons.html',
+		controller:'PersonController'
+	})
+	.when('/saveperson',{
+		templateUrl:'views/PersonForm.html',
+		controller:'PersonController'
+	})
+	.when('/getpersonbyid/:id',{
+		templateUrl:'views/EditForm.html',
+		controller:'EditController'
+	})
+	.when('/deleteperson',{
+		templateUrl:'views/Persons.html',
+		controller:'PersonController'
+	})
+	.otherwise('/',{
+		templateUrl:'views/HomePage.html',
+		controller:'HomeController'
+	})
+})

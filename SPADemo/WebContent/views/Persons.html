@@ -1,0 +1,5 @@
+<div>
+<ul ng-repeat="p in persons">
+<li>{{p.firstName}} &nbsp {{p.lastName}} &nbsp {{p.age}} &nbsp <a href="#/getpersonbyid/{{p.id}}">Edit</a> &nbsp <a href="#/deleteperson" ng-click="delete(p.id)">Delete</a></li> 
+</ul>
+</div>
