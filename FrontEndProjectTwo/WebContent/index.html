@@ -5,13 +5,40 @@
 <title>Insert title here</title>
 </head>
 <body ng-app="app">
-<a href="#/registration">Register new User</a>
-<div ng-view>
-</div>
+	<a href="#/registration" ng-hide="currentUser.firstName">Register
+		new User</a>
+	<br>
+	<a href="#/login" ng-hide="currentUser.firstName">Sign in</a>
+	<br>
+	<a href="#/savejob" ng-show="currentUser.role=='Admin'">Insert New
+		Job</a>
+	<a href="#/getalljobs">View Jobs</a>
+	<a href="" ng-show="currentUser.firstName">Welcome
+		{{currentUser.firstName}}</a>
+	<br>
+	<a href="" ng-show="currentUser.firstName" ng-click="logout()">Log
+		Out</a>
+	<br>
+	<a href="#/saveblogpost" ng-show="currentUser.firstName">Write Blog</a>
+	<div ng-view></div>
 </body>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></</script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></</script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js">
+	</
+</script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js">
+	</
+</script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js">
+	</
+</script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="controllers/usercontroller.js"></script>
 <script type="text/javascript" src="services/userservice.js"></script>
+<script type="text/javascript" src="controllers/jobcontroller.js"></script>
+<script type="text/javascript" src="services/jobservice.js"></script>
+<script type="text/javascript" src="controllers/blogcontroller.js"></script>
+<script type="text/javascript" src="services/blogservice.js"></script>
 </html>
