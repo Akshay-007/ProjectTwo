@@ -18,4 +18,16 @@ app.controller("BlogController",function($scope, $location, BlogService) {
 						}
 					})
 					}
+					
+					$scope.blogsApproved=BlogService.getBlogsApproved().then(function(response){
+						$scope.blogsApproved=response.data
+					},function(response){
+						console.log(response.status)
+					})
+					
+					$scope.blogsWaitingForApproval=BlogService.getBlogsWaitingForApproval().then(function(response){
+						$scope.blogsWaitingForApproval=response.data
+					},function(response){
+						console.log(response.status)
+					})
 				})

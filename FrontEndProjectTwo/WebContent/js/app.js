@@ -24,6 +24,10 @@ app.config(function($routeProvider){
 		templateUrl:'views/BlogPostForm.html',
 		controller:'BlogController' 
 	})
+	.when('/listofblogs',{
+		templateUrl:'views/BlogsList.html',
+		controller:'BlogController' 
+	})
 	.otherwise('/',{
 		templateUrl:'views/Home.html'
 	})
@@ -37,6 +41,7 @@ app.run(function($location,$rootScope,UserService,$cookieStore){
 	$rootScope.logout=function(){
 		UserService.logoutUser().then(function(response){
 			$rootScope.message="Logged out successfully"
+				//$rootScope.currentUser==null
 				delete $rootScope
 				$cookieStore.remove("currentUser")
 				$location.path('/login')
