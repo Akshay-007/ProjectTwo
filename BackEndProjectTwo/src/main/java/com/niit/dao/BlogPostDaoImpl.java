@@ -1,5 +1,8 @@
 package com.niit.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,15 @@ public class BlogPostDaoImpl implements BlogPostDao {
 		session.save(blogPost);
 		session.flush();
 		session.close();
+	}
+
+	public List<BlogPost> getallblogs(boolean approved) {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from BlogPost where approval="+approved);
+		@SuppressWarnings("unchecked")
+		List<BlogPost> blogs=query.list();
+		session.close();
+		return blogs;
 	}
 
 }

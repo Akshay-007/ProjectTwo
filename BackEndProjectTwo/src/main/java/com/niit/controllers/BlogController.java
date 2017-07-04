@@ -1,12 +1,14 @@
 package com.niit.controllers;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,6 +41,19 @@ public class BlogController {
 			Error error = new Error(2, "Could not insert Blog details");
 			return new ResponseEntity<Error>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+	
+	@RequestMapping(value="/listofblogs/{approved}",method=RequestMethod.GET)
+	public ResponseEntity<?> getAllBlogs(@PathVariable boolean approved, HttpSession session)
+	{
+		Users user=(Users) session.getAttribute("user");
+		if(user==null)
+		{
+			Error error=new Error(3,"Unauthorized");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		List<BlogPost> blogs=blogPostDao.getallblogs(approved);
+		return new ResponseEntity<List<BlogPost>>(blogs,HttpStatus.OK);
 	}
 
 }
