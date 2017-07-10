@@ -2,6 +2,8 @@
  * 
  */
 app.controller("UserController",function(UserService,$location,$scope,$rootScope,$cookieStore){
+	
+	
 	$scope.register=function(){
 		UserService.registerUser($scope.user).then(function(response){
 			$scope.message="Registered successfully. Please Log in."

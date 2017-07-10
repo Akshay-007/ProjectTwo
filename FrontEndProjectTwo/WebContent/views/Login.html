@@ -1,6 +1,16 @@
+<div style="background-image:url(images/students.jpg);height:100%;width:100%;position:absolute" align="right">
+<div class="container">
 {{message}}
-<form > 
-<input type="text" ng-model="user.username" placeholder="Enter Username"><br/>
-<input type="text" ng-model="user.password" placeholder="Password"><br/>
+<form class="form-inline"> 
+
+<div class="form-group">
+<input type="text" class="form-control" ng-model="user.username" placeholder="Enter Username"  size="25"><br/>
+</div>
+<div class="form-group">
+<input type="text" class="form-control" ng-model="user.password" placeholder="Password" size="25"><br/>
+</div>
 <input type="submit" value="Login" ng-click="login()">
 </form>
+<!-- <img src="images/students.jpg" alt="sfdf"/> -->
+</div>
+</div>

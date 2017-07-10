@@ -28,7 +28,15 @@ app.config(function($routeProvider){
 		templateUrl:'views/BlogsList.html',
 		controller:'BlogController' 
 	})
-	.otherwise('/',{
+	.when('/getBlogForApproval/:id',{
+		templateUrl:'views/ApprovalForm.html',
+		controller:'BlogDetailController' 
+	})
+	.when('/getBlogDetail/:id',{
+		templateUrl:'views/BlogDetail.html',
+		controller:'BlogDetailController' 
+	})
+	.otherwise({
 		templateUrl:'views/Home.html'
 	})
 })
@@ -40,6 +48,7 @@ app.run(function($location,$rootScope,UserService,$cookieStore){
 	
 	$rootScope.logout=function(){
 		UserService.logoutUser().then(function(response){
+			$rootScope.currentUser.firstName=null
 			$rootScope.message="Logged out successfully"
 				//$rootScope.currentUser==null
 				delete $rootScope

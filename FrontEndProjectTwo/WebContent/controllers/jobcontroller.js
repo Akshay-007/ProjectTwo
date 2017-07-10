@@ -2,6 +2,12 @@
  * 
  */
 app.controller("JobController",function($scope,$location,JobService){
+	
+	$scope.myObj = {
+		    "color" : "white",
+		    "background-color" : "white"
+		  }
+	
 	$scope.save=function(){
 		JobService.saveJob($scope.job).then(function(response){
 			$location.path('/getalljobs')

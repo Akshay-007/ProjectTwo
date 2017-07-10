@@ -14,5 +14,22 @@ app.factory("BlogService",function($http){
 	blogService.getBlogsWaitingForApproval=function(){
 		return $http.get("http://localhost:8080/BackEndProjectTwo/listofblogs/"+false)
 	}
+	
+	blogService.getBlogPost=function(id){
+		return $http.get("http://localhost:8080/BackEndProjectTwo/getblogpost/"+id)
+	}
+	
+	blogService.updateBlogPost=function(blogPost){
+		return $http.put("http://localhost:8080/BackEndProjectTwo/updateblog",blogPost)
+	}
+	
+	blogService.addComment=function(blogComment){
+		return $http.post("http://localhost:8080/BackEndProjectTwo/addblogcomment",blogComment) 
+	}
+	
+	blogService.getComments=function(blogId){
+		return $http.get("http://localhost:8080/BackEndProjectTwo/getblogcomments/"+blogId)
+	}
+	
 	return blogService;
 })

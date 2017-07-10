@@ -2,7 +2,7 @@
 <h3>List of Blogs awaiting Approval</h3>
 <table class="table">
 <tr data-ng-repeat="blogPost in blogsWaitingForApproval">
-<td>Created by: {{blogPost.createdBy.firstName}}</td><td>Created on: {{blogPost.postedOn | date:'yyyy:mm:dd HH:mm'}}</td>
+<td><a href="#getBlogForApproval/{{blogPost.id}}">{{blogPost.title}}</a></td><td>Created by: {{blogPost.createdBy.firstName}}</td><td>Created on: {{blogPost.postedOn | date:'yyyy:mm:dd HH:mm'}}</td>
 </tr>
 </table>
 </div>
@@ -11,7 +11,7 @@
 <h3>List of Blogs</h3>
 <table class="table">
 <tr data-ng-repeat="blogPost in blogsApproved">
-<td>Created by: {{blogPost.createdBy.firstName}}</td><td>Created on: {{blogPost.postedOn | date:'yyyy:mm:dd HH:mm'}}</td>
+<td><a href="#getBlogDetail/{{blogPost.id}}">{{blogPost.title}}</a></td><td>Created by: {{blogPost.createdBy.firstName}}</td><td>Created on: {{blogPost.postedOn | date:'yyyy:mm:dd HH:mm'}}</td>
 </tr>
 </table>
 </div>
