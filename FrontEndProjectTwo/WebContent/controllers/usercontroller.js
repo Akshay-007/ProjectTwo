@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller("UserController",function(UserService,$location,$scope,$rootScope,$cookieStore){
+app.controller("UserController",function(UserService,$location,$scope,$rootScope,$cookieStore,$window){
 	
 	
 	$scope.register=function(){
@@ -20,8 +20,10 @@ app.controller("UserController",function(UserService,$location,$scope,$rootScope
 			$cookieStore.put("currentUser",response.data)
 			$location.path('/home')
 		},function(response){
-			$scope.error=response.data
+//			$scope.error=response.data.message
+			$window.alert("Username or password is incorrect!Please try again, oh forgetful one.....:p")
 			$location.path('/login')
+			console.log(response.data)
 		})
 	}
 })

@@ -1,0 +1,22 @@
+<div class="container">
+<!-- <h4 align="center">Posts by {{wallName}}</h4> -->
+<div align="center">
+<img src="http://localhost:8080/BackEndProjectTwo/getimage/{{wallName}}" alt="Profile Picture" width="300px" height="300px">
+</div>
+<h4 align="center">Posts by {{wallName}}</h4>
+<table>
+<tr data-ng-repeat="p in blogPost">
+<td><a href="#/getBlogDetail/{{p.id}}"><h3>{{p.title}}</h3></a><h6>{{p.createdBy.firstName}} {{p.createdBy.lastName}}</h6><p>{{p.description}}</p>
+<!-- <h5 data-ng-mouseover="getBlogComments(p.id)">Comments</h5> -->
+<ul> <!-- data-ng-show="showComments" -->
+<li data-ng-repeat="comment in p.comments">
+<h6>{{comment.commentedBy.username}}</h6>
+<p>{{comment.body}}</p>
+<p>{{comment.commentedOn | date:'medium'}}
+</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>

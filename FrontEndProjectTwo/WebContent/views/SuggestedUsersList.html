@@ -1,0 +1,17 @@
+<div>
+<table class="table">
+<thead>
+<tr>
+<th>First Name</th><th>Last Name</th><th>Role</th><th>Friend Request</th>
+</tr>
+</thead>
+<tbody>
+<tr data-ng-repeat="user in listOfSuggestedFriends">
+<td>{{user.firstName}}</td>
+<td>{{user.lastName}}</td>
+<td>{{user.role}}</td>
+<td><a href="" data-ng-click="friendRequest(user.username)" class="btn btn-default">Add Friend</a></td>
+</tr>
+</tbody>
+</table>
+</div>

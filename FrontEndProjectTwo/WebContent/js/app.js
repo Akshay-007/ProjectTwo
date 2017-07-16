@@ -36,6 +36,25 @@ app.config(function($routeProvider){
 		templateUrl:'views/BlogDetail.html',
 		controller:'BlogDetailController' 
 	})
+	.when('/friendsuggestions',{
+		templateUrl:'views/SuggestedUsersList.html',
+		controller:'FriendController' 
+	})
+	.when('/pendingrequests',{
+		templateUrl:'views/ViewRequests.html',
+		controller:'FriendController' 
+	})
+	.when('/viewfriends',{
+		templateUrl:'views/FriendList.html',
+		controller:'FriendController' 
+	})
+	.when('/wall/:username',{
+		templateUrl:'views/Wall.html',
+		controller:'WallController' 
+	})
+	.when('/profilepic',{
+		templateUrl:'views/ProfilePic.html'
+	})
 	.otherwise({
 		templateUrl:'views/Home.html'
 	})

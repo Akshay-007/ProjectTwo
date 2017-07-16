@@ -31,7 +31,7 @@ app.controller("BlogController",function($scope, $location, BlogService) {
 						console.log(response.status)
 					})
 					
-					
+		
 					
 					
 				})

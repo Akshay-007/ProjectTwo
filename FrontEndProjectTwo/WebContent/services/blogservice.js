@@ -31,5 +31,10 @@ app.factory("BlogService",function($http){
 		return $http.get("http://localhost:8080/BackEndProjectTwo/getblogcomments/"+blogId)
 	}
 	
+	blogService.viewWall=function(username){
+		return $http.get("http://localhost:8080/BackEndProjectTwo/wall/"+username)
+	}
+	
+	
 	return blogService;
 })

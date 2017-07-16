@@ -10,13 +10,11 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
-<!-- <style>
-body {
-    background-image: url("http://thesteeplechurch.org/wp-content/uploads/2012/01/students.jpg");
-    
-}
-</style> -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+	rel="stylesheet" />
+<title>NIIT</title>
+ 
 </head>
 <body data-ng-app="app">
 <nav class="navbar navbar-inverse">
@@ -26,20 +24,39 @@ body {
     </div>
     <ul class="nav navbar-nav">
     <li class="active"><a href="#">Home</a></li>
-
+    <li class="dropdown" data-ng-show="currentUser.firstName">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">Jobs
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
 	<li><a href="#/savejob" data-ng-show="currentUser.role=='Admin'">Insert New
 		Job</a></li>
 	<li><a href="#/getalljobs">View Jobs</a></li>
-
+        </ul>
+        <li class="dropdown" data-ng-show="currentUser.firstName">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">Blogs
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
 	<li><a href="#/saveblogpost" data-ng-show="currentUser.firstName">Write Blog</a></li>
 	
 	<li><a href="#/listofblogs" data-ng-show="currentUser.firstName">View Blogs</a></li>
+	    </ul>
+	    <li class="dropdown" data-ng-show="currentUser.firstName">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">Friends
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+	<li><a href="#/friendsuggestions" data-ng-show="currentUser.firstName">Friend Suggestions</a></li>
+	<li><a href="#/pendingrequests" data-ng-show="currentUser.firstName">Friend Requests</a></li>
+	<li><a href="#/viewfriends" data-ng-show="currentUser.firstName">Friend List</a></li>
+	    </ul>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
+	<li><a href="#profilepic" data-ng-show="currentUser.username">
+                    <img src="http://localhost:8080/BackEndProjectTwo/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded">
+                    </a></li>
       <li><a href="#/registration" data-ng-hide="currentUser.firstName"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#/login" data-ng-hide="currentUser.firstName"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li><a href="" data-ng-show="currentUser.firstName">Welcome
-		{{currentUser.firstName}}</a></li>
+      <li><a href="#/wall/{{currentUser.username}}" data-ng-show="currentUser.firstName">
+		{{currentUser.firstName}} {{currentUser.lastName}}</a></li>
       <li><a href="" data-ng-show="currentUser.firstName" data-ng-click="logout()">Log
 		Out</a></li>
     </ul>
@@ -67,4 +84,7 @@ body {
 <script type="text/javascript" src="controllers/blogcontroller.js"></script>
 <script type="text/javascript" src="services/blogservice.js"></script>
 <script type="text/javascript" src="controllers/blogdetailcontroller.js"></script>
+<script type="text/javascript" src="controllers/friendcontroller.js"></script>
+<script type="text/javascript" src="services/friendservice.js"></script>
+<script type="text/javascript" src="controllers/wallcontroller.js"></script>
 </html>
