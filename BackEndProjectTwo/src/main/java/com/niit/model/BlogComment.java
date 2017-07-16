@@ -3,11 +3,16 @@ package com.niit.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class BlogComment {
@@ -18,8 +23,9 @@ public class BlogComment {
 	@JoinColumn(name="username")
     private Users commentedBy;
 	private Date commentedOn;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="blogpost_id")
+	@JsonBackReference
 	private BlogPost blogPost;
 	private String body;
 	public int getId() {

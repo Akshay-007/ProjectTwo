@@ -124,5 +124,37 @@ public class BlogController {
 		}
 	}
 	
+	@RequestMapping(value="/wall/{username}",method=RequestMethod.GET)
+	public ResponseEntity<?> getBlogs(@PathVariable String username)
+	{
+		try{
+			List<BlogPost> blogs=blogPostDao.getBlogs(username);
+		return new ResponseEntity<List<BlogPost>>(blogs,HttpStatus.OK);
+		}catch(Exception e){
+			Error error=new Error(10,"Unable to fetch Wall");
+			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+	}
+	
+	/*@RequestMapping(value="/getblogcomments",method=RequestMethod.POST)
+	public ResponseEntity<?> getBlogComments(@RequestBody BlogPost blogPost,HttpSession session)
+	{
+		Users user=(Users) session.getAttribute("user");
+		if(user==null)
+		{
+			Error error=new Error(8,"Unauthorized user");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		try{
+			List<BlogComment> blogComments=blogPostDao.getBlogComments(blogPost);
+			return new ResponseEntity<List<BlogComment>>(blogComments,HttpStatus.OK);
+		}catch(Exception e)
+		{
+			Error error=new Error(9,"Unable to insert comment");
+			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}*/
+	
 
 }
