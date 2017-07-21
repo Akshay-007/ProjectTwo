@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller("WallController",function($scope,$location,BlogService,$window,$routeParams){
+app.controller("WallController",function($scope,$location,BlogService,$window,$routeParams,$rootScope,FriendService){
 	var username=$routeParams.username
 	$scope.wallName=username
 	
@@ -12,18 +12,20 @@ app.controller("WallController",function($scope,$location,BlogService,$window,$r
 			console.log(response.status)
 		})
 		
-		$scope.addComment=function(){
-		$scope.blogComment.blogPost=$scope.blogPost
-		BlogService.addComment($scope.blogComment).then(function(response){
+		$scope.model = {};
+		$scope.addComment=function(blog){
+		$scope.date = new Date();
+		blog.comments.push({"body":$scope.comment,"commentedOn":$scope.date,"commentedBy":$rootScope.currentUser});
+		BlogService.addCommentWall(blog).then(function(response){
 			console.log(response.status)
 			alert('Comment added successfully')
-			$scope.blogComment.body=''
+			$scope.comment=''
 		},function(response){
 			console.log(response.status)
 		})
 	}
 		
-		$scope.getBlogComments=function(blogId){
+		/*$scope.getBlogComments=function(blogId){
 		$scope.showComments=true
 		BlogService.getComments(blogId).then(function(response){
 			$scope.blogComments=response.data
@@ -33,8 +35,16 @@ app.controller("WallController",function($scope,$location,BlogService,$window,$r
 			console.log(response.status)
 		})
 	}
-
-	
+*/
+		function friendDetails(username){
+			FriendService.getFriendDetails(username).then(function(response){
+				$scope.friendDetailsOne=response.data
+			},function(response){
+				$window.alert("Failed to fetch Friend Details. Read console for details")
+				console.log(response.status)
+			})
+		}
+		friendDetails(username);
 	
 	
 })

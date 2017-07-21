@@ -2,14 +2,18 @@
 <table class="table">
 <thead>
 <tr>
-<th>First Name</th><th>Last Name</th><th>Role</th><th>Friend Request</th>
+<th></th><th>Username</th><th>First Name</th><th>Last Name</th><th>Role</th><th>ONLINE/OFFLINE</th><th>Friend Request</th>
 </tr>
 </thead>
 <tbody>
 <tr data-ng-repeat="user in listOfSuggestedFriends">
+<td><img src="http://localhost:8080/BackEndProjectTwo/getimage/{{user.username}}" alt="" width="150px" height="150px" class="img-rounded"></td></td>
+<td>{{user.username}}</td>
 <td>{{user.firstName}}</td>
 <td>{{user.lastName}}</td>
 <td>{{user.role}}</td>
+<td data-ng-if="user.online">ONLINE</td>
+<td data-ng-if="!user.online">OFFLINE</td>
 <td><a href="" data-ng-click="friendRequest(user.username)" class="btn btn-default">Add Friend</a></td>
 </tr>
 </tbody>

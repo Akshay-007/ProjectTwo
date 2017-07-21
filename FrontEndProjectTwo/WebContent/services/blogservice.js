@@ -35,6 +35,9 @@ app.factory("BlogService",function($http){
 		return $http.get("http://localhost:8080/BackEndProjectTwo/wall/"+username)
 	}
 	
+	blogService.addCommentWall=function(blog){
+		return $http.put("http://localhost:8080/BackEndProjectTwo/addcommentwall",blog) 
+	}
 	
 	return blogService;
 })

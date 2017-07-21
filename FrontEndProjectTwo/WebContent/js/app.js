@@ -55,6 +55,14 @@ app.config(function($routeProvider){
 	.when('/profilepic',{
 		templateUrl:'views/ProfilePic.html'
 	})
+	.when('/editprofile',{
+		templateUrl:'views/EditProfile.html',
+		controller:'UserController'
+	})
+	 .when('/chat',{
+		templateUrl:'views/Chat.html',
+		controller:'ChatCtrl'
+	})
 	.otherwise({
 		templateUrl:'views/Home.html'
 	})

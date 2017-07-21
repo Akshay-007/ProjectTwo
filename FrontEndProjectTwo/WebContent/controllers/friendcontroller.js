@@ -53,6 +53,17 @@ app.controller("FriendController",function($scope,$location,FriendService,$windo
 		})
 	}
 	
+	$scope.friendDetails=function(username){
+		$scope.showDetails=false
+		FriendService.getFriendDetails(username).then(function(response){
+			$scope.showDetails=true
+			$scope.friendDetails=response.data
+		},function(response){
+			$window.alert("Failed to fetch Friend Details. Read console for details")
+			console.log(response.status)
+		})
+	}
+	
 	friendSuggestions();
 	pendingRequests();
 	viewFriendList();

@@ -3,11 +3,7 @@
  */
 app.factory("UserService",function($http){
 	var userService={}
-//	var config = {
-//            headers : {
-//                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-//            }
-//        }
+
 	userService.registerUser=function(user){
 		return $http.post("http://localhost:8080/BackEndProjectTwo/registration",user)
 	}
@@ -18,6 +14,14 @@ app.factory("UserService",function($http){
 	
 	userService.logoutUser=function(user){
 		return $http.get("http://localhost:8080/BackEndProjectTwo/logout",user)
+	}
+	
+	userService.getUserDetails=function(){
+		return $http.get("http://localhost:8080/BackEndProjectTwo/getuserdetails")
+	}
+	
+	userService.updateUserDetails=function(user){
+		return $http.put("http://localhost:8080/BackEndProjectTwo/updateprofile",user)
 	}
 	return userService;
 })

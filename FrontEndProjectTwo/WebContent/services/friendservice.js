@@ -23,5 +23,9 @@ app.factory("FriendService",function($http){
 	friendService.getFriendList=function(){
 		return $http.get("http://localhost:8080/BackEndProjectTwo/viewfriends")
 	}
+	
+	friendService.getFriendDetails=function(username){
+		return $http.get("http://localhost:8080/BackEndProjectTwo/viewFriend/"+username)
+	}
 	return friendService;
 })

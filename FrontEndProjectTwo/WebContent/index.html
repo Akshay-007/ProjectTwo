@@ -23,31 +23,33 @@
       <a class="navbar-brand" href="#">NIIT</a>
     </div>
     <ul class="nav navbar-nav">
-    <li class="active"><a href="#">Home</a></li>
+    <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
     <li class="dropdown" data-ng-show="currentUser.firstName">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="">Jobs
+        <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-briefcase"></span> Jobs
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
 	<li><a href="#/savejob" data-ng-show="currentUser.role=='Admin'">Insert New
 		Job</a></li>
-	<li><a href="#/getalljobs">View Jobs</a></li>
+	<li><a href="#/getalljobs"><span class="glyphicon glyphicon-search"></span> View Jobs</a></li>
         </ul>
         <li class="dropdown" data-ng-show="currentUser.firstName">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="">Blogs
+        <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-book"></span> Blogs
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-	<li><a href="#/saveblogpost" data-ng-show="currentUser.firstName">Write Blog</a></li>
+	<li><a href="#/saveblogpost" data-ng-show="currentUser.firstName"><span class="glyphicon glyphicon-pencil"></span> Write Blog</a></li>
 	
-	<li><a href="#/listofblogs" data-ng-show="currentUser.firstName">View Blogs</a></li>
+	<li><a href="#/listofblogs" data-ng-show="currentUser.firstName"><span class="glyphicon glyphicon-search"></span> View Blogs</a></li>
 	    </ul>
 	    <li class="dropdown" data-ng-show="currentUser.firstName">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="">Friends
+        <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-globe"></span> Friends
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
 	<li><a href="#/friendsuggestions" data-ng-show="currentUser.firstName">Friend Suggestions</a></li>
 	<li><a href="#/pendingrequests" data-ng-show="currentUser.firstName">Friend Requests</a></li>
 	<li><a href="#/viewfriends" data-ng-show="currentUser.firstName">Friend List</a></li>
+	<li><a href="#/editprofile" data-ng-show="currentUser.firstName">Edit Profile</a></li>
 	    </ul>
+	    <li><a href="#chat" data-ng-show="currentUser.username"><span class="glyphicon glyphicon-envelope"></span> Chat </a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 	<li><a href="#profilepic" data-ng-show="currentUser.username">
@@ -62,7 +64,7 @@
     </ul>
 	</div>
 	</nav>
-	<div data-ng-view></div>
+	<div data-ng-view ></div>
 </body>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js">
@@ -87,4 +89,8 @@
 <script type="text/javascript" src="controllers/friendcontroller.js"></script>
 <script type="text/javascript" src="services/friendservice.js"></script>
 <script type="text/javascript" src="controllers/wallcontroller.js"></script>
+<script src="js/sockjs/sockjs.js"></script>
+<script src="js/stomp/dist/stomp.js"></script>
+<script type="text/javascript" src="controllers/chatcontroller.js"></script>
+<script type="text/javascript" src="services/chatservice.js"></script>
 </html>

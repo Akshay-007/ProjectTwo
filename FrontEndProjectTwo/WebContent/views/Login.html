@@ -35,7 +35,8 @@ body {
     animation: move 10s ease infinite;
     transform: translate3d(0, 0, 0); */
 /*     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%); */
-    background-image:url("images/students1.jpg") ;
+/*     background-image:url("images/students.jpg") ; */
+    background:blue;
     background-size: cover;
     height: 100vh
 }
@@ -153,20 +154,23 @@ body {
   </style>
   {{error}}
   {{message}}
+
     <header class="user__header">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
         <h1 class="user__title"><!-- A lightweight and simple sign-up form --></h1>
     </header>
     
-    <form class="form">
+    <form class="form" name="loginForm" novalidate>
     
         <div class="form__group">
-            <input type="text" data-ng-model="user.username" placeholder="Username" class="form__input" />
+            <input type="text" data-ng-model="user.username" name="username" placeholder="Username" class="form__input" required />
+            <span data-ng-show="loginForm.username.$invalid && !loginForm.username.$pristine" style="color:red;">Username cannot be blank</span>
         </div>
         <div class="form__group">
-            <input type="text" data-ng-model="user.password" placeholder="Password" class="form__input" />
+            <input type="text" data-ng-model="user.password" name="password" placeholder="Password" class="form__input" required />
+            <span data-ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" style="color:red;">Password cannot be blank</span>
         </div>
         
-        <button class="btn" type="button" data-ng-click="login()">Submit</button>
+        <button class="btn" type="button" data-ng-click="login()" data-ng-disabled="loginForm.$invalid">Submit</button>
     </form>
-</div>
+    </div>
