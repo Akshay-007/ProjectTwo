@@ -137,24 +137,19 @@ public class BlogController {
 		
 	}
 	
-	/*@RequestMapping(value="/getblogcomments",method=RequestMethod.POST)
-	public ResponseEntity<?> getBlogComments(@RequestBody BlogPost blogPost,HttpSession session)
+	@RequestMapping(value="/addcommentwall",method=RequestMethod.PUT)
+	public ResponseEntity<?> addCommentWall(@RequestBody BlogPost blogPost,HttpSession session)
 	{
 		Users user=(Users) session.getAttribute("user");
 		if(user==null)
 		{
-			Error error=new Error(8,"Unauthorized user");
+			Error error=new Error(9,"Unauthorized user");
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
-		try{
-			List<BlogComment> blogComments=blogPostDao.getBlogComments(blogPost);
-			return new ResponseEntity<List<BlogComment>>(blogComments,HttpStatus.OK);
-		}catch(Exception e)
-		{
-			Error error=new Error(9,"Unable to insert comment");
-			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}*/
+		blogPostDao.updateBlog(blogPost); 
+		return new ResponseEntity<Void>(HttpStatus.OK);
+		
+	}
 	
 
 }

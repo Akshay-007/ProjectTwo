@@ -96,13 +96,13 @@ public class BlogPostDaoImpl implements BlogPostDao {
 		session.flush();
 		session.close();
 	}
-	
-	/*public List<BlogComment> getBlogComments(BlogPost blogPost) {
-		Session session=sessionFactory.openSession();
-		//BlogPost blogPost=(BlogPost) session.get(BlogPost.class,blogId);
-		List<BlogComment> blogComments=blogPost.getComments();
-		session.close();
-		return blogComments; 
-	}*/
 
+	public void updateBlog(BlogPost blogPost) {
+		Session session=sessionFactory.openSession();
+		session.update(blogPost);
+		session.flush();
+		session.close();
+		
+	}
+	
 }
