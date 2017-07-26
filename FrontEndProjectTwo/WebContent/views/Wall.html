@@ -16,8 +16,10 @@
 <tr><td>  {{friendDetailsOne.role}}</td></tr>
 </table>
 </div>
+<hr>
+<h4><a href="#/saveblogpost">Write new Blog</a></h4>
 <table>
-<tr data-ng-repeat="p in blogPost">
+<tr data-ng-repeat="p in blogPost | orderBy: '-postedOn'">
 <td><a href="#/getBlogDetail/{{p.id}}"><h3>{{p.title}}</h3></a><h6>{{p.createdBy.firstName}} {{p.createdBy.lastName}}</h6><p>{{p.description}}</p>
 <div data-ng-mouseover="open = true" data-ng-mouseleave="open = false" >
 Comments
