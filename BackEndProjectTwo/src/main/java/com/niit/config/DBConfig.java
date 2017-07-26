@@ -16,6 +16,7 @@ import com.niit.model.BlogComment;
 import com.niit.model.BlogPost;
 import com.niit.model.Friend;
 import com.niit.model.Job;
+import com.niit.model.MessagePrivate;
 import com.niit.model.ProfilePicture;
 import com.niit.model.Users;
 @Configuration
@@ -30,9 +31,10 @@ public class DBConfig {
 	"hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 	hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 	hibernateProperties.setProperty("hibernate.show_sql", "true");
+	hibernateProperties.setProperty("hibernate.hbm2ddl.import_files_sql_extractor", "org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor");
 	lsf.addProperties(hibernateProperties);
 	@SuppressWarnings("rawtypes")
-	Class classes[]=new Class[]{Users.class,Job.class,BlogPost.class,BlogComment.class,Friend.class,ProfilePicture.class};
+	Class classes[]=new Class[]{Users.class,Job.class,BlogPost.class,BlogComment.class,Friend.class,ProfilePicture.class,MessagePrivate.class};
 	return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
 	@Bean
