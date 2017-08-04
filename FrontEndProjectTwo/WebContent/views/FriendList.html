@@ -1,4 +1,23 @@
 <div>
+<style scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    font-size: $font-size;
+    /* background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0); */
+/*     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%); */
+    background-image:url("images/white.jpg") ; */
+    background-size: cover;
+    height: 100vh
+}
+</style>
 <table class="table">
 <tr data-ng-repeat="friend in friends">
 <td data-ng-hide="currentUser.username==friend.fromId"><img src="http://localhost:8080/BackEndProjectTwo/getimage/{{friend.fromId}}" alt="" width="100px" height="100px" class="img-rounded"></td>
