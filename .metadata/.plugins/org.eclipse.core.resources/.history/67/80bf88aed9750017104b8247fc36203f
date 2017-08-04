@@ -1,0 +1,16 @@
+<div style="background-image:url(images/white.jpg);height:100%;width:100%;background-size: cover;">
+<div class="container">
+{{message}}
+<form>
+<table>
+<tr>
+<td>Title</td><td><input data-ng-model="blogPost.title"></td> 
+</tr>
+<tr>
+<td>Description</td><td><textarea data-ng-model="blogPost.description" rows="20" cols="180"></textarea></td>
+</tr>
+</table>
+<input type="submit" value="Post" data-ng-click="saveBlogPost()"/>
+</form>
+</div>
+</div>

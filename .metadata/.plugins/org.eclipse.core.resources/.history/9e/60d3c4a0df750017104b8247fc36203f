@@ -1,0 +1,44 @@
+<div style="background-image:url(images/studentsedited.jpg); height:100%;width:100%;position:absolute;background-size: cover"> 
+<!-- <div style="background-image:url(images/studentsedited.jpg); height:100%;width:100%;position:absolute;background-size: cover"></div> -->
+<div class="container" data-ng-show="currentUser.firstName">
+<style scoped>
+.boxed {
+  /* border: 1px solid green ; */
+}
+#content {
+  float: left ;
+  width: 45% ;
+  height:10%;
+  margin: 10px;
+}
+#navbar {
+  float: right;
+  width: 45%;
+  margin: 10px;
+}
+#friends {
+  float: right;
+  width: 80%;
+  margin: 10px;
+}
+</style>
+<div class="boxed" id="content">
+<figure>
+  <a href="#/getalljobs"><img src="http://media.gettyimages.com/photos/businesswoman-looking-over-her-shoulder-carrying-a-briefcase-picture-idskd172288sdc?s=170667a" width="400px" height="400px" alt="sfsf"></a>
+  <figcaption style="font-size:30px;color:white;text-align:center;">Jobs</figcaption>
+  </figure>
+</div>
+<div class="boxed" id="navbar">
+ <figure>
+  <a href="#/listofblogs"><img src="http://ayakomiura09.com/eigyoujyoshi/wp-content/uploads/2015/10/unnamed-2.jpg" width="500px" height="400px" alt="sfsf"></a>
+  <figcaption style="font-size:30px;color:white;text-align:center;">Blogs</figcaption>
+  </figure>
+</div>
+<div class="boxed" id="friends">
+  <figure>
+  <a href="#/viewfriends"><img src="images/students.jpg" width="600px" height="400px" alt="sfsf"></a>
+  <figcaption style="font-size:30px;color:black;text-align:center;">Friends</figcaption>
+  </figure>
+</div>
+</div>
+</div>

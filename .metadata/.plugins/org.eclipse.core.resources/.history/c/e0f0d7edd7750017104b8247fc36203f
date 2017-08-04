@@ -1,0 +1,38 @@
+<div style="background-image:url(images/studentsedited.jpg);">
+<input type="text" placeholder="Search Titles" data-ng-model="searchText"/><br>
+<table class="table">
+<thead>
+<tr>
+<th>Title</th><th>Posted on</th>
+</tr>
+</thead>
+<tbody>
+<tr data-ng-repeat="job in jobs | filter:searchText">
+<td><a href="" data-ng-click="viewJobDetails(job.id)">{{job.jobTitle}}</a></td><td>{{job.postedOn | date:'yyyy:mm:dd'}}</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table class="table" data-ng-show="showDetails">
+<caption>Details</caption>
+<tr>
+<td>Title</td><td>{{job.jobTitle}}</td>
+</tr>
+<tr>
+<td>Description</td><td>{{job.jobDescription}}</td>
+</tr>
+<tr>
+<td>Location</td><td>{{job.location}}</td>
+</tr>
+<tr>
+<td>Experience</td><td>{{job.yrsOfExp}}</td>
+</tr>
+<tr>
+<td>Skills</td><td>{{job.skillsRequired}}</td>
+</tr>
+<tr>
+<td>Salary</td><td>{{job.salary}}</td>
+</tr>
+
+</table>
+</div>

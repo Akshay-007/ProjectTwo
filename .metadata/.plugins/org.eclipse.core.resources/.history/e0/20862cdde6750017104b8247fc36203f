@@ -1,0 +1,34 @@
+<div>
+<style scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    font-size: $font-size;
+    /* background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0); */
+/*     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%); */
+    background-image:url("images/white.jpg") ; */
+    background-size: cover;
+    height: 100vh
+}
+</style>
+<form>
+	
+		 <input type="text" data-ng-model="userobj.firstName"  style="margin-bottom: 20px;" size="40"><br>
+		 
+		 <input type="text" ng-model="userobj.lastName"  style="margin-bottom: 20px;" size="40"><br>
+		 <input type="text" ng-model="userobj.email"  style="margin-bottom: 20px;" size="40"><br>
+		 <input type="text" ng-model="userobj.username"  style="margin-bottom: 20px;" size="40"><br>
+		 <input type="text" ng-model="userobj.password"  style="margin-bottom: 20px;" size="40"><br>
+		Select Role<br><input type="radio" ng-model="userobj.role" value="Student">Student
+		<input type="radio" ng-model="userobj.role" value="Alumni">Alumni
+		<input type="radio" ng-model="userobj.role" value="Employee">Employee<br>
+		<input type="submit" ng-click="update()">
+	</form>
+	</div>

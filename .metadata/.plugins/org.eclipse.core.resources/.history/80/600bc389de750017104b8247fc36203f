@@ -1,0 +1,57 @@
+<div style="height:100%;width:100%;position:absolute;background-size: cover">
+<style scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    font-size: $font-size;
+    /* background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0); */
+/*     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%); */
+    background-image:url("images/corporate.jpg") ; */
+    background-size: cover;
+    height: 100vh
+}
+</style>
+<input type="text" placeholder="Search Titles" data-ng-model="searchText"/><br>
+<table class="table">
+<thead>
+<tr>
+<th>Title</th><th>Posted on</th>
+</tr>
+</thead>
+<tbody>
+<tr data-ng-repeat="job in jobs | filter:searchText">
+<td><a href="" data-ng-click="viewJobDetails(job.id)">{{job.jobTitle}}</a></td><td>{{job.postedOn | date:'yyyy:mm:dd'}}</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table class="table" data-ng-show="showDetails">
+<caption>Details</caption>
+<tr>
+<td>Title</td><td>{{job.jobTitle}}</td>
+</tr>
+<tr>
+<td>Description</td><td>{{job.jobDescription}}</td>
+</tr>
+<tr>
+<td>Location</td><td>{{job.location}}</td>
+</tr>
+<tr>
+<td>Experience</td><td>{{job.yrsOfExp}}</td>
+</tr>
+<tr>
+<td>Skills</td><td>{{job.skillsRequired}}</td>
+</tr>
+<tr>
+<td>Salary</td><td>{{job.salary}}</td>
+</tr>
+
+</table>
+</div>
